@@ -5,49 +5,57 @@
     Controls,
     Background,
     BackgroundVariant,
-    MiniMap,
+    
     useSvelteFlow,
-    type Node
+    Position,
+    type NodeTypes,
+    type Node,
+    type Edge
   } from '@xyflow/svelte';
-  import Sidebar from './Sidebar.svelte';
 
+  import Sidebar from './Sidebar.svelte';
   import '@xyflow/svelte/dist/style.css';
   import { useDnD } from './utils';
 
   const nodes = writable([
-    {
-      id: '1',
-      type: 'input',
-      data: { label: 'Input Node' },
-      position: { x: 150, y: 5 }
-    },
-    {
-      id: '2',
-      type: 'default',
-      data: { label: 'Default Node' },
-      position: { x: 0, y: 150 }
-    },
-    {
-      id: '3',
-      type: 'output',
-      data: { label: 'Output Node' },
-      position: { x: 300, y: 150 }
-    }
+  {
+    id: 'horizontal-1',
+    sourcePosition: Position.Right,
+    type: 'input',
+    data: { label: 'Inbound' },
+    position: { x: 0, y: 0 }
+  },
+  {
+    id: 'horizontal-2',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
+    data: { label: 'Microservice' },
+    position: { x: 200, y: 0 }
+  },
+  {
+    id: 'horizontal-4',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
+    data: { label: 'simple-psql' },
+    position: { x: 400, y: 0 }
+  }
   ]);
 
   const edges = writable([
-    {
-      id: '1-2',
-      type: 'default',
-      source: '1',
-      target: '2'
-    },
-    {
-      id: '1-3',
-      type: 'smoothstep',
-      source: '1',
-      target: '3'
-    }
+  {
+    id: 'horizontal-e1-2',
+    source: 'horizontal-1',
+    type: 'smoothstep',
+    target: 'horizontal-2',
+    animated: true
+  },
+  {
+    id: 'horizontal-e1-4',
+    source: 'horizontal-2',
+    type: 'smoothstep',
+    target: 'horizontal-4'
+/*    label: 'edge label' */
+  }
   ]);
 
   const { screenToFlowPosition } = useSvelteFlow();
@@ -91,7 +99,7 @@
   <SvelteFlow {nodes} {edges} fitView on:dragover={onDragOver} on:drop={onDrop}>
     <Controls />
     <Background variant={BackgroundVariant.Dots} />
-    <MiniMap />
+
   </SvelteFlow>
   <Sidebar />
 </main>

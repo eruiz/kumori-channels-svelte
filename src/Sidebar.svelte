@@ -15,23 +15,23 @@
 </script>
 
 <aside>
-  <div class="label">Marketplace Components. Drag a component and connect it to the microservice.</div>
+  <div class="label">Marketplace Components</div>
   <div class="nodes-container">
-    <div style="width: 100px; text-align: center;" 
+    <div 
       class="input-node node"
       on:dragstart={(event) => onDragStart(event, 'input')}
       draggable={true}
     >
       inbound
     </div>
-    <div style="width: 100px; text-align: center;"
+    <div 
       class="default-node node"
       on:dragstart={(event) => onDragStart(event, 'default')}
       draggable={true}
     >
       simple-psql
     </div>
-    <div style="width: 100px; text-align: center;"
+    <div 
       class="output-node node"
       on:dragstart={(event) => onDragStart(event, 'output')}
       draggable={true}
@@ -39,6 +39,7 @@
       simple-mongodb
     </div>
   </div>
+  <div class="label">Drag a component and connect it to the microservice.</div>
 </aside>
 
 <style>
@@ -54,7 +55,7 @@
 
   .label {
     margin: 1rem 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .nodes-container {
@@ -70,6 +71,7 @@
     font-weight: 700;
     border-radius: 3px;
     cursor: grab;
-    width: 50px;
+    text-align: center;
+    width: 100px;
   }
 </style>
