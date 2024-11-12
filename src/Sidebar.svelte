@@ -15,7 +15,7 @@
 </script>
 
 <aside>
-  <div class="label">Marketplace Components</div>
+  <div class="label">Runtime</div>
   <div class="nodes-container">
     <div 
       class="input-node node"
@@ -39,7 +39,7 @@
       simple-mongodb
     </div>
   </div>
-  <div class="label">Drag a component and connect it to the microservice.</div>
+  <div class="label">Services that currently are running in the same environment. Drag and connect it to the microservice.</div>
 </aside>
 
 <style>

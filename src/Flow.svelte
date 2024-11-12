@@ -10,7 +10,8 @@
     Position,
     type NodeTypes,
     type Node,
-    type Edge
+    type Edge,
+    type OnConnectEnd
   } from '@xyflow/svelte';
 
   import AnnotationNode from './AnnotationNode.svelte';
@@ -30,8 +31,9 @@
     id: 'horizontal-2',
     sourcePosition: Position.Right,
     targetPosition: Position.Left,
+    style: 'background: #CCCCCC',
     data: { label: 'Microservice' },
-    position: { x: 200, y: 0 }
+    position: { x: 250, y: 0 }
   },
   {
     id: 'horizontal-4',
@@ -39,6 +41,13 @@
     targetPosition: Position.Left,
     data: { label: 'simple-psql' },
     position: { x: 500, y: 0 }
+  },
+  {
+    id: 'horizontal-5',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
+    data: { label: 'kafka' },
+    position: { x: 400, y: 100 }
   }
   ]);
 
@@ -47,15 +56,13 @@
     id: 'horizontal-e1-2',
     source: 'horizontal-1',
     type: 'smoothstep',
-    target: 'horizontal-2',
-    animated: true
+    target: 'horizontal-2'
   },
   {
     id: 'horizontal-e1-4',
     source: 'horizontal-2',
     type: 'smoothstep',
-    target: 'horizontal-4',
-    label: 'link'
+    target: 'horizontal-4'
   }
   ]);
 
