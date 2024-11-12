@@ -13,6 +13,7 @@
     type Edge
   } from '@xyflow/svelte';
 
+  import AnnotationNode from './AnnotationNode.svelte';
   import Sidebar from './Sidebar.svelte';
   import '@xyflow/svelte/dist/style.css';
   import { useDnD } from './utils';
@@ -37,7 +38,7 @@
     sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: { label: 'simple-psql' },
-    position: { x: 400, y: 0 }
+    position: { x: 500, y: 0 }
   }
   ]);
 
@@ -53,8 +54,8 @@
     id: 'horizontal-e1-4',
     source: 'horizontal-2',
     type: 'smoothstep',
-    target: 'horizontal-4'
-/*    label: 'edge label' */
+    target: 'horizontal-4',
+    label: 'link'
   }
   ]);
 
